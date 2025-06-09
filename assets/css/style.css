@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: "Satoshi", sans-serif;
+    background-image: linear-gradient(to bottom, #171717, #000000 70%);
+    overflow: hidden;   
+}
+
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.2s ease-out;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+#content {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 5;
+}
+
+#mevona {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    filter: drop-shadow(#ffffff 1px 0 5px);
+}
+
+#telegram-icon {
+    margin-top: 30px;
+    width: 40px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: drop-shadow(#ffffff 1px 0 7px);
+}
+
+#telegram-icon:hover {
+    transform: scale(1.1);
+}
+
+#music-icon {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 40px;
+    cursor: pointer;
+    display: none;
+    z-index: 11;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: drop-shadow(#ffffff 1px 0 7px);
+}
+
+@media screen and (max-width: 600px) {
+    #mevona {
+        font-size: 30px;
+    }
+    #telegram-icon,
+    #music-icon {
+        width: 30px;
+    }
+}
+
+hr.thunder {
+    border: unset;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    animation-name: thunder;
+    animation-duration: var(--thunder-duration);
+    animation-timing-function: linear;
+    animation-delay: var(--thunder-delay);
+    animation-iteration-count: infinite;
+    z-index: 1;
+}
+
+hr:not(.thunder) {
+    width: 50px;
+    border-color: transparent;
+    border-right-color: rgba(255, 255, 255, 0.7);
+    border-right-width: 50px;
+    position: absolute;
+    bottom: 100%;
+    transform-origin: 100% 50%;
+    animation-name: rain;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: 1;
+}
+
+@keyframes rain {
+    from {
+        transform: rotate(105deg) translateX(0);
+    }
+    to {
+        transform: rotate(105deg) translateX(calc(100vh + 20px));
+    }
+}
+
+@keyframes thunder {
+    0% {
+        background-color: transparent;
+    }
+    1% {
+        background-color: white;
+    }
+    2% {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    8% {
+        background-color: transparent;
+    }
+}
